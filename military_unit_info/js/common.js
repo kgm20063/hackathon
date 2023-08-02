@@ -9,9 +9,7 @@ let = mapOptions = { //지도를 생성할 때 필요한 기본 옵션
 
 let map = new kakao.maps.Map(mapContainer, mapOptions); //지도 생성 및 객체 리턴
 
-let markerPosition;
-markerPosition = new kakao.maps.LatLng(37.776383, 126.843730)
-markerPosition = new kakao.maps.LatLng(38.243550, 127.414048)
+let = markerPosition = new kakao.maps.LatLng(37.776383, 126.843730)
 const marker = new kakao.maps.Marker({
   position: markerPosition
 });
