@@ -2,7 +2,7 @@ const mapContainer = document.getElementById('map');
 const tabs = document.querySelectorAll(".tabMenu li");
 let moveLatLon;
 
-let = mapOptions = { //지도를 생성할 때 필요한 기본 옵션
+let mapOptions = { //지도를 생성할 때 필요한 기본 옵션
   center: new kakao.maps.LatLng(37.776383, 126.843730), //지도의 중심좌표.
   level: 5 //지도의 레벨(확대, 축소 정도)
 };
@@ -18,6 +18,7 @@ function moveMap() {
 
 function corps1() { // 제1보병사단
   moveLatLon = new kakao.maps.LatLng(37.776383, 126.843730);
+  
   moveMap();
 }
 function corps2() { // 제3보병사단
