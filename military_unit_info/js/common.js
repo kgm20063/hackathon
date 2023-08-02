@@ -9,7 +9,7 @@ let = mapOptions = { //지도를 생성할 때 필요한 기본 옵션
 
 let map = new kakao.maps.Map(mapContainer, mapOptions); //지도 생성 및 객체 리턴
 
-let = markerPosition = new kakao.maps.LatLng(37.776383, 126.843730)
+let markerPosition = new kakao.maps.LatLng(37.776383, 126.843730)
 const marker = new kakao.maps.Marker({
   position: markerPosition
 });
@@ -38,21 +38,52 @@ function corps4() {
   moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
   moveMap();
 }
+function corps5() {
+  moveLatLon = new kakao.maps.LatLng(38.138561, 127.685901);
+  moveMap();
+}
+function corps6() {
+  moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
+  moveMap();
+}
+function corps7() {
+  moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
+  moveMap();
+}
+function corps8() {
+  moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
+  moveMap();
+}
+function corps9() {
+  moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
+  moveMap();
+}
+function corps10() {
+  moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
+  moveMap();
+}
+function corps11() {
+  moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
+  moveMap();
+}
+function corps12() {
+  moveLatLon = new kakao.maps.LatLng(38.242165, 127.250003);
+  moveMap();
+}
 
 tabs.forEach((el, idx) => {
   el.addEventListener("click", () => {
-    if(idx == 0) corps1(); 
+    if(idx == 0) corps1();
     if(idx == 1) corps2();
     if(idx == 2) corps3();
     if(idx == 3) corps4();
-    if(idx == 4) corps3();
-    if(idx == 5) corps3();
-    if(idx == 6) corps3();
-    if(idx == 7) corps3();
-    if(idx == 8) corps3();
-    if(idx == 9) corps3();
-    if(idx == 10) corps3();
-    if(idx == 11) corps3();
-    if(idx == 12) corps3();
+    if(idx == 4) corps5();
+    if(idx == 5) corps6();
+    if(idx == 6) corps7();
+    if(idx == 7) corps8();
+    if(idx == 8) corps9();
+    if(idx == 9) corps10();
+    if(idx == 10) corps11();
+    if(idx == 11) corps12();
   })
 });
