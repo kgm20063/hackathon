@@ -1,4 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; list-style: none; text-decoration: none; }
 
-.tabMenu { width: 500px; }
-.tabMenu a { display: block; width: 20%; }
+.tabMenu { width: 700px; }
+.tabMenu ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(18%, auto)); gap: 5px; }
+.tabMenu li { border: 1px solid #333; padding: 3px 10px; }
+.tabMenu a { display: block; color: #000; }
