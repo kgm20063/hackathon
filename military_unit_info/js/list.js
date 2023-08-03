@@ -12,7 +12,7 @@ const info = [
     latlng: new kakao.maps.LatLng(38.243550, 127.414048),
     image: './images/2.PNG',
     symbolicName: '백골부대',
-    address: '강원특별자치도 철원권',
+    address: '강원특별자치도 철원군',
     url: 'https://namu.wiki/w/%EC%A0%9C3%EB%B3%B4%EB%B3%91%EC%82%AC%EB%8B%A8'
   },
   {
