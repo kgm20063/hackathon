@@ -1,6 +1,9 @@
 const mapContainer = document.getElementById('map');
 const tabs = document.querySelectorAll(".tabMenu li");
 let moveLatLon;
+let marker;
+let content;
+let overlays = [];
 
 let mapOptions = { //지도를 생성할 때 필요한 기본 옵션
   center: new kakao.maps.LatLng(37.776383, 126.843730), //지도의 중심좌표.
@@ -70,68 +73,47 @@ function corps13() { // 제28보병사단
   moveMap();
 }
 
-const positions = [
-  {
-    title: '제1보병사단',
-    latlng: new kakao.maps.LatLng(37.776383, 126.843730)
-  },
-  {
-    title: '제3보병사단',
-    latlng: new kakao.maps.LatLng(38.243550, 127.414048)
-  },
-  {
-    title: '제5보병사단',
-    latlng: new kakao.maps.LatLng(38.023487, 127.109811)
-  },
-  {
-    title: '제6보병사단',
-    latlng: new kakao.maps.LatLng(38.242165, 127.250003)
-  },
-  {
-    title: '제7보병사단',
-    latlng: new kakao.maps.LatLng(38.138561, 127.685901)
-  },
-  {
-    title: '제9보병사단',
-    latlng: new kakao.maps.LatLng(37.702755, 126.796993)
-  },
-  {
-    title: '제12보병사단',
-    latlng: new kakao.maps.LatLng(38.114501, 128.196289)
-  },
-  {
-    title: '제15보병사단',
-    latlng: new kakao.maps.LatLng(38.054844, 127.525250)
-  },
-  {
-    title: '제17보병사단',
-    latlng: new kakao.maps.LatLng(37.476609, 126.746114)
-  },
-  {
-    title: '제21보병사단',
-    latlng: new kakao.maps.LatLng(38.084144, 127.975266)
-  },
-  {
-    title: '제22보병사단',
-    latlng: new kakao.maps.LatLng(38.284153, 128.490796)
-  },
-  {
-    title: '제25보병사단',
-    latlng: new kakao.maps.LatLng(37.890193, 126.954015)
-  },
-  {
-    title: '제28보병사단',
-    latlng: new kakao.maps.LatLng(37.911247, 127.014179)
-  },
-];
+for(let i=0; i<info.length; i++) {
+  content = document.createElement('div').innerHTML =
+            '    <div class="wrap">' + 
+            '      <div class="info">' + 
+            '        <div class="title">' + 
+            `           ${info[i].title}`+ 
+            '          <div class="close" onclick="closeOverlay('+i+')" title="닫기"></div>' + 
+            '        </div>' + 
+            '        <div class="body">' + 
+            '          <div class="img">' +
+            `            <img src="${info[i].image}" width="73" height="70">` +
+            '          </div>' + 
+            '          <div class="desc">' + 
+            `            <div class="address">${info[i].address}</div>` + 
+            `            <div class="jibun ellipsis">${info[i].symbolicName}</div>` + 
+            `            <div><a href="${info[i].url}" target="_blank" class="link">자세히 보기</a></div>` + 
+            '          </div>' + 
+            '        </div>' + 
+            '      </div>' +    
+            '    </div>';
 
-for(let i = 0; i<positions.length; i++) {
-  let marker = new kakao.maps.Marker({
+  marker = new kakao.maps.Marker({
     map: map,
-    position: positions[i].latlng,
-    title: positions[i].title
+    position: info[i].latlng,
+    title: info[i].title,
   });
-};
+
+  overlays[i] = new kakao.maps.CustomOverlay({
+    content: content,
+    map: map,
+    position: marker.getPosition()
+  });
+  
+  kakao.maps.event.addListener(marker, 'click', function() {
+    overlays[i].setMap(map);
+  });
+}
+
+function closeOverlay(i) {
+  overlays[i].setMap(null);
+}
 
 tabs.forEach((el, idx) => {
   el.addEventListener("click", () => {
