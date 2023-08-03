@@ -1,5 +1,6 @@
 const mapContainer = document.getElementById('map');
 const tabs = document.querySelectorAll(".tabMenu li");
+const selected = document.querySelector(".selected")
 let moveLatLon;
 let marker;
 let content;
@@ -21,7 +22,6 @@ function moveMap() {
 
 function corps1() { // 제1보병사단
   moveLatLon = new kakao.maps.LatLng(37.776383, 126.843730);
-  
   moveMap();
 }
 function corps2() { // 제3보병사단
@@ -115,20 +115,60 @@ function closeOverlay(i) {
   overlays[i].setMap(null);
 }
 
+let text = [];
 tabs.forEach((el, idx) => {
   el.addEventListener("click", () => {
-    if(idx == 0) corps1();
-    if(idx == 1) corps2();
-    if(idx == 2) corps3();
-    if(idx == 3) corps4();
-    if(idx == 4) corps5();
-    if(idx == 5) corps6();
-    if(idx == 6) corps7();
-    if(idx == 7) corps8();
-    if(idx == 8) corps9();
-    if(idx == 9) corps10();
-    if(idx == 10) corps11();
-    if(idx == 11) corps12();
-    if(idx == 12) corps13();
+      if(idx == 0) {
+        selected.innerHTML = `<h2>${info[0].title}</h2>`
+        corps1();
+      }
+      if(idx == 1) {
+        selected.innerHTML = `<h2>${info[1].title}</h2>`
+        corps2();
+      }
+      if(idx == 2) {
+        selected.innerHTML = `<h2>${info[2].title}</h2>`
+        corps3();
+      }
+      if(idx == 3) {
+        selected.innerHTML = `<h2>${info[3].title}</h2>`
+        corps4();
+      }
+      if(idx == 4) {
+        selected.innerHTML = `<h2>${info[4].title}</h2>`
+        corps5();
+      }
+      if(idx == 5) {
+        selected.innerHTML = `<h2>${info[5].title}</h2>`
+        corps6();
+      }
+      if(idx == 6) {
+        selected.innerHTML = `<h2>${info[6].title}</h2>`
+        corps7();
+      }
+      if(idx == 7) {
+        selected.innerHTML = `<h2>${info[7].title}</h2>`
+        corps8();
+      }
+      if(idx == 8) {
+        selected.innerHTML = `<h2>${info[8].title}</h2>`
+        corps9();
+      }
+      if(idx == 9) {
+        selected.innerHTML = `<h2>${info[9].title}</h2>`
+        corps10();
+      }
+      if(idx == 10) {
+        selected.innerHTML = `<h2>${info[10].title}</h2>`
+        corps11();
+      }
+      if(idx == 11) {
+        selected.innerHTML = `<h2>${info[11].title}</h2>`
+        corps12();
+      }
+      if(idx == 12) {
+        selected.innerHTML = `<h2>${info[12].title}</h2>`
+        corps13();
+      }
   })
 });
